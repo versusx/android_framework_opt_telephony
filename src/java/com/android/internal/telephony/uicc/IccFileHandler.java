@@ -543,7 +543,6 @@ public abstract class IccFileHandler extends Handler implements IccConstants {
 
                 fileid = msg.arg1;
 
-<<<<<<< HEAD
                 if (VDBG) {
                     logd(String.format("Contents of the Select Response for command %x: ", fileid)
                             + IccUtils.bytesToHexString(data));
@@ -552,10 +551,8 @@ public abstract class IccFileHandler extends Handler implements IccConstants {
                 if (TYPE_EF != data[RESPONSE_DATA_FILE_TYPE]) {
                     throw new IccFileTypeMismatch();
                 }
-=======
                 if (UiccTlvData.isUiccTlvData(data)) {
                     UiccTlvData tlvData = UiccTlvData.parse(data);
->>>>>>> 6112f89... Implement UICC TLV Data decoding.
 
                     if (tlvData.mFileSize < 0) {
                         throw new IccFileTypeMismatch();
