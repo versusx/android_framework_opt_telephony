@@ -548,9 +548,6 @@ public abstract class IccFileHandler extends Handler implements IccConstants {
                             + IccUtils.bytesToHexString(data));
                 }
 
-                if (TYPE_EF != data[RESPONSE_DATA_FILE_TYPE]) {
-                    throw new IccFileTypeMismatch();
-                }
                 if (UiccTlvData.isUiccTlvData(data)) {
                     UiccTlvData tlvData = UiccTlvData.parse(data);
 
